@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'com.bmuschko.tomcat' version '2.7.0'
+}
+
+group = 'org.app'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.29'
+
+
+}
+test {
+    useJUnitPlatform()
+}
+
+
+tomcat {
+    // Specify the Tomcat installation directory
+
+    httpPort = 8080
+    contextPath = 'C:\\Users\\pc\\Desktop\\web maven test\\cleanIt\\src\\main'
+}
